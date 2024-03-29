@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+body {
+    background-color: rgb(219, 190, 180);
+}
+
+.hero{
+    background-color: blue;
+    // h1{
+    //     font-weight: bold;
+    // }
+    .textIntro{
+        font-size: 3rem;
+    }
+    .boutonConnexion{
+        border: yellow 2px solid;
+    }
+}
+
+#performances{
+    
+    h1{
+        font-size: 3rem;
+    }
+    a{
+        border: black 1px solid;
+        border-radius: 10px;
+        padding: .5rem;
+        margin: 1rem;
+        width: 10rem;
+        text-align: center;
+    }
+    .performance{
+        border: black 1px solid;
+        border-radius: 10px;
+        padding: .5rem;
+        margin: 1rem;
+        span{
+            font-weight: bold;
+        }
+        .title{
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .location{}
+        .date{}
+        .meetLocation{}
+        .meetHour{}
+        .information{}
+        .playTime{}
+        .nbPerf{}
+    }
+}
