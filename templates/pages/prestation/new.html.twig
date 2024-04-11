@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Presta{% endblock %}
+
+{% block body %}
+<section id="new">
+    <div class="block">       
+
+        <a href="{{ path('prestation.index') }}" class="btn">Liste des prestations</a>
+
+        <h1>Nouvelle Prestation</h1>
+
+        {{ form_start(form) }}
+
+        <div class="block">
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title) }}
+            <div class="alert red-alert">{{ form_errors(form.title) }}</div>
+        </div>
+        <div>
+            {{ form_label(form.location)}}
+            {{ form_widget(form.location) }}
+            <div class="alert red-alert">{{ form_errors(form.location) }}
+        </div>
+        <div>
+            {{ form_label(form.date)}}
+            {{ form_widget(form.date) }}
+            <div class="alert red-alert">{{ form_errors(form.date) }}
+        </div>
+        <div>
+            {{ form_label(form.meetingLocation)}}
+            {{ form_widget(form.meetingLocation) }}
+            <div class="alert red-alert">{{ form_errors(form.meetingLocation) }}
+        </div>
+        <div>
+            {{ form_label(form.meetingHour)}}
+            {{ form_widget(form.meetingHour) }}
+            <div class="alert red-alert">{{ form_errors(form.meetingHour) }}
+        </div>
+        <div>
+            {{ form_label(form.information)}}
+            {{ form_widget(form.information) }}
+            <div class="alert red-alert">{{ form_errors(form.information) }}
+        </div>
+        <div>
+            {{ form_label(form.playingTime)}}
+            {{ form_widget(form.playingTime) }}
+            <div class="alert red-alert">{{ form_errors(form.playingTime) }}
+        </div>
+        <div>
+            {{ form_label(form.nbPerformance)}}
+            {{ form_widget(form.nbPerformance) }}
+            <div class="alert red-alert">{{ form_errors(form.nbPerformance) }}
+        </div>
+
+        <div class="block">
+            {{ form_row(form.submit, { 'label': 'Creer la presta'}) }}
+        </div>       
+
+        {{ form_end(form) }}
+        
+        
+    </div>
+
+</section>
+
+{% endblock %}

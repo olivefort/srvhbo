@@ -6,6 +6,7 @@
  */
 // import './styles/app.css';
 import './styles/main.scss';
+import './script/main';
 
 
 

@@ -2,7 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.alert{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    margin: 1rem;
+    padding: .5rem;
+    .red-alert{
+        border-color: red;
+        background-color: red;
+    }
+    .green-alert{
+        border-color: green;
+        background-color: green;
+    }
+}
 
 
 
@@ -23,8 +37,15 @@ body {
     }
 }
 
-#performances{
-    
+.alert{
+    .close{
+        color: red;
+        cursor: pointer;
+        border: 1px black solid;
+    }
+}
+
+#performances{    
     h1{
         font-size: 3rem;
     }
@@ -55,5 +76,17 @@ body {
         .information{}
         .playTime{}
         .nbPerf{}
+    }
+}
+
+#new{
+    #prestation{
+        margin: 2rem;
+    }
+    .btn{
+        border: 1px black solid;
+        border-radius: 10px;
+        margin: 1rem;
+        padding: .5rem;
     }
 }
