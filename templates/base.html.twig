@@ -7,10 +7,12 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 
         {% block stylesheets %}
+            {# option tailwind #}
             {{ encore_entry_link_tags('app') }}
             {# option bootstrap #}
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/darkly/bootstrap.min.css" integrity="sha512-HDszXqSUU0om4Yj5dZOUNmtwXGWDa5ppESlX98yzbBS+z+3HQ8a/7kcdI1dv+jKq+1V5b01eYurE7+yFjw6Rdg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/darkly/bootstrap.rtl.min.css" integrity="sha512-bDXFao8syK87+SNw6XmqzBHeOv5r2t24grOk1K8omUKaOaZUq3jAC75+h2XDCJtFzUeCATicnSt+iH+NEG8mQg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/cyborg/bootstrap.min.css" integrity="sha512-M+Wrv9LTvQe81gFD2ZE3xxPTN5V2n1iLCXsldIxXvfs6tP+6VihBCwCMBkkjkQUZVmEHBsowb9Vqsq1et1teEg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/cyborg/bootstrap.rtl.min.css" integrity="sha512-5K0gDb7qGyr8RSmVR3OzYcJdWQiACT/kXkXdNSkThlPaotiKrfdHpXtQppHDi+fpQ7pFWvOtPnlXVKNLfNJSfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             <link rel="stylesheet" href="/style.css"/>
         {% endblock %}
         

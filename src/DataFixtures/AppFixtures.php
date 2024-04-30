@@ -8,6 +8,7 @@ use Faker\Generator;
 use App\Entity\Prestation;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
@@ -19,8 +20,9 @@ class AppFixtures extends Fixture
     
         
     
-    public function load(ObjectManager $manager): void
-    {
+    public function load(
+        ObjectManager $manager
+    ): void {
         //Users
         $users = [];   
         for ($i=0; $i < 10; $i++) { 
