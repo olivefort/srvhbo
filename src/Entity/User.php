@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[ORM\HasLifecycleCallbacks]
+// #[ORM\HasLifecycleCallbacks]
 #[ORM\EntityListeners(['App\EntityListener\UserListener'])]
 #[UniqueEntity('email')]
 
@@ -51,18 +51,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\NotBlank()]
     private string $password = 'password';
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $birthday = null;
+    // #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    // private ?\DateTimeInterface $birthday = null;
+
+    #[ORM\Column(type: 'date_immutable')]
+    private ?\DateTimeImmutable $birthday = null;
 
     #[ORM\Column(type: 'string', length: 100)]
     #[Assert\NotBlank()]
     #[Assert\Length(min: 2, max: 100)]
     private string $address;
 
-    #[ORM\Column(type: 'integer')]
-    #[Assert\Positive()]
-    #[Assert\LessThan(11)]
-    private int $phone;
+    #[ORM\Column(type: 'string')]
+    // #[Assert\NotBlank()]
+    // #[Assert\LessThan(11)]
+    private string $phone;
 
     #[ORM\Column(type: 'boolean')]
     private bool $car;
@@ -181,18 +184,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
-    }
-
-    
+    }    
 
 
 
-    public function getBirthday(): ?\DateTimeInterface
+
+
+    public function getBirthday(): ?\DateTimeImmutable
     {
         return $this->birthday;
     }
 
-    public function setBirthday(\DateTimeInterface $birthday): static
+    public function setBirthday(\DateTimeImmutable $birthday): static
     {
         $this->birthday = $birthday;
 
@@ -211,12 +214,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPhone(): ?int
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setPhone(int $phone): static
+    public function setPhone(string $phone): static
     {
         $this->phone = $phone;
 

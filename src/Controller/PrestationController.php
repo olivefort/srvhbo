@@ -14,6 +14,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PrestationController extends AbstractController
 {
+
+    // READ
     #[Route('/prestation', name: 'prestation.index', methods:['GET'])]
     public function index(
         PrestationRepository $repository,
@@ -26,6 +28,7 @@ class PrestationController extends AbstractController
         ]);
     }
 
+    // CREATE
     #[Route('/prestation/creation', name:'prestation.new', methods:['GET','POST'])]
     public function new(
         Request $request,
@@ -53,6 +56,7 @@ class PrestationController extends AbstractController
         ]);
     }
 
+    // UPDATE
     #[Route('/prestation/edition/{id}','prestation.edit',methods: ['GET','POST'])]
     public function edit(
         Request $request,
@@ -74,6 +78,7 @@ class PrestationController extends AbstractController
         return $this->render('pages/prestation/edit.html.twig', ['form' => $form->createView()]);
     }
 
+    // DELETE
     #[Route('prestation/suppression/{id}', 'prestation.delete', methods: ['GET'])]
     public function delete(
         EntityManagerInterface $manager,
@@ -94,6 +99,7 @@ class PrestationController extends AbstractController
         return $this->redirectToRoute('prestation.index');
     }
 
+    // READ (one)
     #[Route('/prestation/{id}','prestation.show',methods:['GET'])]
     public function show(
         Prestation $prestation,

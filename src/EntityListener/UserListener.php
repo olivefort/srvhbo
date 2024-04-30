@@ -3,8 +3,10 @@
 namespace App\EntityListener;
 
 use App\Entity\User;
+use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-
+ 
+#[AutoconfigureTag('doctrine.orm.entity_listener')]
 class UserListener
 {
     private UserPasswordHasherInterface $hasher;

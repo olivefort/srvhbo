@@ -34,7 +34,7 @@ class AppFixtures extends Fixture
                     -> setPlainPassword('password')
                     -> setBirthday(new \DateTimeImmutable($this->faker->date('Y-m-d')))
                     -> setAddress($this->faker->streetAddress())
-                    -> setPhone($this->faker->phoneNumber(+33))
+                    -> setPhone($this->faker->phoneNumber())
                     -> setCar(mt_rand(0, 1) == 1 ? true : false)
                     -> setCarSeat($car == true ? mt_rand(0, 6) : null);
             
