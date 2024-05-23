@@ -15,23 +15,26 @@
 
 <section id="performances" class="grid grid-cols-12">
     {# {% if not prestations.items is same as([]) %}   #}
-        <h1 class="col-span-12">Prestations</h1>
-        <a href="/prestation/creation" class="add col-span-12 place-self-center">Ajouter une prestation</a>
+        <h1 class="col-span-12 place-self-center">Prestations</h1>
+        <a href="/prestation/creation" class="add col-span-12 place-self-center btn btn-primary">Ajouter une prestation</a>
         {# <p>Il y a {{ prestations.getTotalItemCount }} au total</p> #}
 
         <ul class="list col-span-12 grid grid-cols-12">
             {% for prestation in prestations %}            
-                <li class="performance col-start-3 col-end-11">
-                    <div class="title">{{ prestation.title }}</div>
-                    <div class="location"><span>Ville</span> : {{ prestation.location }}</div>
-                    <div class="date"><span>Le</span> : {{ prestation.date|date("d/m/Y") }}</div>
-                    <div class="meetLocation"><span>Lieu de Rendez-vous</span> : {{ prestation.meetingLocation }}</div>
-                    <div class="meetHour"><span>A</span> : {{ prestation.meetingHour|date('h') }}H{{ prestation.meetingHour|date('i')}}</div>
-                    <div class="information"><span>Infos</span> : </br>{{ prestation.information }}</div>
-                    <div class="playTime"><span>Temps de jeu total</span> : {{ prestation.playingTime|date('H:i') }}</div>               
-                    <div class="nbPerf"><span>Nombre de passage</span> : {{ prestation.nbPerformance }}{{ prestation.nbPerformance is same as (null) ? 'Non renseigné' : ''}}</div>
-                    <td><a type="button" class="btn" href="{{ path('prestation.edit', { id: prestation.id }) }}">Modifier</a></td>
-                    <td><a type="button" class="btn" href="{{ path('prestation.delete', { id: prestation.id }) }}">Supprimer</a></td>
+                <li class="performance col-span-4 d-flex flex-column align-middle">
+                    <div class="title place-self-center">{{ prestation.title }}</div>
+                    <div class="d-flex flex-row justify-content-evenly">
+                        <div class="location"><span>Ville</span> : {{ prestation.location }}</div>
+                        <div>
+                            <div class="date"><span>Le</span> : {{ prestation.date|date("d/m/Y") }}</div>                    
+                            <div class="meetHour"><span>A</span> : {{ prestation.meetingHour|date('h') }}H{{ prestation.meetingHour|date('i')}}</div>
+                        </div>
+                    </div>                    
+                    <div class="d-flex flex-row">
+                        <td><a type="button" class="btn btn-info d-flex align-items-center" href="{{ path('prestation.show', { id: prestation.id }) }}">Plus d'info</a></td>
+                        <td><a type="button" class="btn btn-success d-flex align-items-center" href="{{ path('prestation.edit', { id: prestation.id }) }}">Modifier</a></td>
+                        <td><a type="button" class="btn btn-danger d-flex align-items-center" href="{{ path('prestation.delete', { id: prestation.id }) }}">Supprimer</a></td>
+                    </div>
                 </li>            
             {% endfor %}
         </ul>

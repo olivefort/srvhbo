@@ -13,13 +13,13 @@
 
 <section id="members" class="grid grid-cols-12">
     {# {% if not prestations.items is same as([]) %}   #}
-        <h1 class="col-span-12">Membres</h1>
-        <a href="/membre/nouveau" class="add col-span-12 place-self-center">Ajouter un membre</a>
+        <h1 class="col-span-12 place-self-center">Membres</h1>
+        <a href="/membre/nouveau" class="add col-span-12 place-self-center btn btn-primary">Ajouter un membre</a>
         {# <p>Il y a {{ members.getTotalItemCount }} au total</p> #}
 
         <ul class="list col-span-12 grid grid-cols-12">
             {% for member in members %}            
-                <li class="member col-span-4  card border-dark m-3 p-3">
+                <li class="member col-span-4 d-flex flex-column align-middle">
                     <div class="name"><span>Nom</span> : {{ member.name }}</div>
                     <div class="firstName"><span>Prénom</span> : {{ member.firstName }}</div>
                     <div class="pseudo"><span>Pseudo</span> : {{ member.pseudo }}</div>
@@ -28,7 +28,7 @@
                     <div class="playTime"><span>Date de naissance</span> : {{ member.birthday|date('d/m/Y') }}</div>        
                     <div class="address"><span>Adresse</span> : {{ member.address }}</div>        
                     <div class="phone"><span>Téléphone</span> : {{ member.phone }}</div>              
-                    <div class="car"><span>Voiture</span> : {{ member.car is same as 1 ? 'Non' : 'Oui'}}</div>
+                    <div class="car"><span>Voiture</span> : {{ (member.car is same as (true)) ? 'Oui' : 'Non'}}</div>
                 </li>            
             {% endfor %}
         </ul>

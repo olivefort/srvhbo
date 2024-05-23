@@ -3,8 +3,22 @@
 {% block title %}Saravah {{ prestation.title }}{% endblock %}
 
 {% block body %}
-<div>
-    <h1>{{prestation.title}}</h1>
+
+<section id="performance" class="grid grid-cols-12">
+    <div class="col-start-3 col-end-11">
+        <h1>{{prestation.title}}</h1>
+        <div class="location"><span>Ville</span> : {{ prestation.location }}</div>
+        <div class="date"><span>Le</span> : {{ prestation.date|date("d/m/Y") }}</div>
+        <div class="meetLocation"><span>Lieu de Rendez-vous</span> : {{ prestation.meetingLocation }}</div>
+        <div class="meetHour"><span>A</span> : {{ prestation.meetingHour|date('h') }}H{{ prestation.meetingHour|date('i')}}</div>
+        <div class="information"><span>Infos</span> : </br>{{ prestation.information }}</div>
+        <div class="playTime"><span>Temps de jeu total</span> : {{ prestation.playingTime|date('H:i') }}</div>               
+        <div class="nbPerf"><span>Nombre de passage</span> : {{ prestation.nbPerformance }}{{ prestation.nbPerformance is same as (null) ? 'Non renseigné' : ''}}</div>
+        <td><a type="button" class="btn btn-info" href="{{ path('prestation.show', { id: prestation.id }) }}">Plus d'info</a></td>
+        <td><a type="button" class="btn btn-success" href="{{ path('prestation.edit', { id: prestation.id }) }}">Modifier</a></td>
+        <td><a type="button" class="btn btn-danger" href="{{ path('prestation.delete', { id: prestation.id }) }}">Supprimer</a></td>
+    </div>
+</section>
 
     
 {% endblock %}
